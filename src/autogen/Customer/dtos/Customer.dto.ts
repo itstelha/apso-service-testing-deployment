@@ -33,8 +33,4 @@ export class Customer {
   created_at: Date;
   @ApiProperty()
   updated_at: Date;
-  @ApiProperty()
-  created_at: Date;
-  @ApiProperty()
-  updated_at: Date;
 }

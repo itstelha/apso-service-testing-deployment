@@ -36,12 +36,6 @@ export class Customer {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @CreateDateColumn()
-  created_at: Date;
-
-  @UpdateDateColumn()
-  updated_at: Date;
-
   @IsOptional({ groups: [UPDATE] })
   @IsNotEmpty({ groups: [CREATE] })
   @Column({ type: 'varchar', length: 255, nullable: false })
