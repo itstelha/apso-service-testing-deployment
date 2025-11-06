@@ -1,0 +1,237 @@
+{
+  "entities": [
+    {
+      "name": "Supplier",
+      "created_at": false,
+      "updated_at": false,
+      "fields": [
+        {
+          "name": "name",
+          "type": "varchar",
+          "nullable": false,
+          "isIndex": true,
+          "isUnique": true
+        },
+        {
+          "name": "contact_email",
+          "type": "varchar",
+          "nullable": false,
+          "isIndex": false,
+          "isUnique": true
+        },
+        {
+          "name": "phone_number",
+          "type": "varchar",
+          "nullable": true,
+          "isIndex": false,
+          "isUnique": true
+        },
+        {
+          "name": "address",
+          "type": "text",
+          "nullable": true,
+          "isIndex": false,
+          "isUnique": true
+        },
+        {
+          "name": "status",
+          "type": "enum",
+          "nullable": false,
+          "values": [
+            "active",
+            "inactive"
+          ],
+          "isIndex": false,
+          "isUnique": true
+        }
+      ],
+      "indexes": [
+        {
+          "fields": [
+            "name"
+          ],
+          "unique": true
+        }
+      ],
+      "uniques": [
+        {
+          "fields": [
+            "contact_email"
+          ],
+          "name": "unique_contact_email"
+        }
+      ]
+    },
+    {
+      "name": "Warehouse",
+      "created_at": true,
+      "updated_at": true,
+      "fields": [
+        {
+          "name": "location",
+          "type": "varchar",
+          "nullable": false,
+          "isIndex": true,
+          "isUnique": false
+        },
+        {
+          "name": "capacity",
+          "type": "integer",
+          "nullable": false,
+          "isIndex": false,
+          "isUnique": false
+        },
+        {
+          "name": "status",
+          "type": "enum",
+          "nullable": false,
+          "values": [
+            "active",
+            "inactive"
+          ],
+          "isIndex": false,
+          "isUnique": false
+        }
+      ],
+      "indexes": [
+        {
+          "fields": [
+            "location"
+          ],
+          "unique": false
+        }
+      ],
+      "uniques": []
+    },
+    {
+      "name": "InventoryItem",
+      "created_at": true,
+      "updated_at": true,
+      "fields": [
+        {
+          "name": "name",
+          "type": "varchar",
+          "nullable": false,
+          "isIndex": true,
+          "isUnique": false
+        },
+        {
+          "name": "description",
+          "type": "text",
+          "nullable": true,
+          "isIndex": false,
+          "isUnique": false
+        },
+        {
+          "name": "quantity",
+          "type": "integer",
+          "nullable": false,
+          "isIndex": false,
+          "isUnique": false
+        },
+        {
+          "name": "unit_price",
+          "type": "decimal",
+          "nullable": false,
+          "isIndex": false,
+          "isUnique": false
+        },
+        {
+          "name": "status",
+          "type": "enum",
+          "nullable": false,
+          "values": [
+            "in_stock",
+            "out_of_stock",
+            "discontinued"
+          ],
+          "isIndex": false,
+          "isUnique": false
+        }
+      ],
+      "indexes": [
+        {
+          "fields": [
+            "name"
+          ],
+          "unique": false
+        }
+      ],
+      "uniques": []
+    },
+    {
+      "name": "StockMovement",
+      "created_at": true,
+      "updated_at": true,
+      "fields": [
+        {
+          "name": "item_id",
+          "type": "uuid",
+          "nullable": false,
+          "isIndex": true,
+          "isUnique": false
+        },
+        {
+          "name": "warehouse_id",
+          "type": "uuid",
+          "nullable": false,
+          "isIndex": true,
+          "isUnique": false
+        },
+        {
+          "name": "movement_type",
+          "type": "enum",
+          "nullable": false,
+          "values": [
+            "in",
+            "out"
+          ],
+          "isIndex": false,
+          "isUnique": false
+        },
+        {
+          "name": "quantity",
+          "type": "integer",
+          "nullable": false,
+          "isIndex": false,
+          "isUnique": false
+        },
+        {
+          "name": "movement_date",
+          "type": "timestamp",
+          "nullable": false,
+          "isIndex": false,
+          "isUnique": false
+        }
+      ],
+      "indexes": [
+        {
+          "fields": [
+            "item_id",
+            "warehouse_id"
+          ],
+          "unique": false
+        }
+      ],
+      "uniques": []
+    }
+  ],
+  "relationships": [
+    {
+      "from": "Supplier",
+      "to": "InventoryItem",
+      "type": "OneToMany"
+    },
+    {
+      "from": "Warehouse",
+      "to": "StockMovement",
+      "type": "OneToMany"
+    },
+    {
+      "from": "InventoryItem",
+      "to": "StockMovement",
+      "type": "OneToMany"
+    }
+  ],
+  "_removedEntities": []
+}
