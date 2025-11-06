@@ -30,8 +30,4 @@ export class InventoryItem {
   unit_price: string;
   @ApiProperty()
   status: enums.InventoryItemStatusEnum;
-  @ApiProperty()
-  created_at: Date;
-  @ApiProperty()
-  updated_at: Date;
 }

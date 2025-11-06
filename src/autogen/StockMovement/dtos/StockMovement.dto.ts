@@ -30,8 +30,4 @@ export class StockMovement {
   quantity: number;
   @ApiProperty()
   movement_date: Date;
-  @ApiProperty()
-  created_at: Date;
-  @ApiProperty()
-  updated_at: Date;
 }

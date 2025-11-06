@@ -22,8 +22,4 @@ export class Warehouse {
   capacity: number;
   @ApiProperty()
   status: enums.WarehouseStatusEnum;
-  @ApiProperty()
-  created_at: Date;
-  @ApiProperty()
-  updated_at: Date;
 }

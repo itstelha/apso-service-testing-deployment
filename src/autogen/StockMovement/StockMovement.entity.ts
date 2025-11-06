@@ -5,8 +5,6 @@
 import {
   Column,
   Entity,
-  CreateDateColumn,
-  UpdateDateColumn,
   PrimaryGeneratedColumn,
   Generated,
   JoinColumn,
@@ -36,12 +34,6 @@ export class StockMovement {
   // Fields
   @PrimaryGeneratedColumn()
   id!: number;
-
-  @CreateDateColumn()
-  created_at: Date;
-
-  @UpdateDateColumn()
-  updated_at: Date;
 
   @Column({ type: 'uuid' })
   item_id: string;

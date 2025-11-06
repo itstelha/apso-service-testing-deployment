@@ -5,8 +5,6 @@
 import {
   Column,
   Entity,
-  CreateDateColumn,
-  UpdateDateColumn,
   PrimaryGeneratedColumn,
   Generated,
   JoinColumn,
@@ -36,12 +34,6 @@ export class InventoryItem {
   // Fields
   @PrimaryGeneratedColumn()
   id!: number;
-
-  @CreateDateColumn()
-  created_at: Date;
-
-  @UpdateDateColumn()
-  updated_at: Date;
 
   @IsOptional({ groups: [UPDATE] })
   @IsNotEmpty({ groups: [CREATE] })

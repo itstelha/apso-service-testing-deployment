@@ -2,8 +2,8 @@
   "entities": [
     {
       "name": "Supplier",
-      "created_at": false,
-      "updated_at": false,
+      "created_at": true,
+      "updated_at": true,
       "fields": [
         {
           "name": "name",
@@ -64,8 +64,6 @@
     },
     {
       "name": "Warehouse",
-      "created_at": true,
-      "updated_at": true,
       "fields": [
         {
           "name": "location",
@@ -105,8 +103,6 @@
     },
     {
       "name": "InventoryItem",
-      "created_at": true,
-      "updated_at": true,
       "fields": [
         {
           "name": "name",
@@ -161,8 +157,6 @@
     },
     {
       "name": "StockMovement",
-      "created_at": true,
-      "updated_at": true,
       "fields": [
         {
           "name": "item_id",

@@ -30,4 +30,8 @@ export class Supplier {
   address: string;
   @ApiProperty()
   status: enums.SupplierStatusEnum;
+  @ApiProperty()
+  created_at: Date;
+  @ApiProperty()
+  updated_at: Date;
 }
