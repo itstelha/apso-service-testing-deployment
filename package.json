@@ -45,7 +45,7 @@
     "@nestjs/platform-express": "^10.0.0",
     "@nestjs/swagger": "^7.1.0",
     "@nestjs/typeorm": "^10.0.0",
-    "@nestjs/websockets": "^10.0.0",
+    "@nestjs/websockets": "^10.4.20",
     "@nestjsx/crud": "4.5.0",
     "@nestjsx/crud-request": "4.5.0",
     "@nestjsx/crud-typeorm": "4.5.0",
